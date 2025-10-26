@@ -29,15 +29,15 @@ const FormSection = ({ formData, options, onInputChange, onSubmit, loading }) =>
         className="mb-8"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-gradient-to-br from-primary-500 to-purple-500 rounded-xl shadow-lg">
+          <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/30">
             <Calculator className="text-white" size={24} />
           </div>
-          <h2 className="text-2xl font-bold text-gray-800">Basic Information</h2>
+          <h2 className="text-2xl font-bold text-cyan-400">Basic Information</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-white mb-2">
               Year
             </label>
             <input
@@ -52,7 +52,7 @@ const FormSection = ({ formData, options, onInputChange, onSubmit, loading }) =>
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-white mb-2">
               KM Driven
             </label>
             <input
@@ -66,7 +66,7 @@ const FormSection = ({ formData, options, onInputChange, onSubmit, loading }) =>
           </motion.div>
 
           <motion.div variants={itemVariants}>
-            <label className="block text-sm font-semibold text-gray-700 mb-2">
+            <label className="block text-sm font-semibold text-white mb-2">
               Seats
             </label>
             <input
@@ -90,10 +90,10 @@ const FormSection = ({ formData, options, onInputChange, onSubmit, loading }) =>
         className="mb-8"
       >
         <div className="flex items-center gap-3 mb-6">
-          <div className="p-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl shadow-lg">
+          <div className="p-3 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl shadow-lg shadow-cyan-500/30">
             <List className="text-white" size={24} />
           </div>
-          <h2 className="text-2xl font-bold text-gray-800">Car Specifications</h2>
+          <h2 className="text-2xl font-bold text-cyan-400">Car Specifications</h2>
         </div>
 
         {options ? (
@@ -199,8 +199,8 @@ const FormSection = ({ formData, options, onInputChange, onSubmit, loading }) =>
           </div>
         ) : (
           <div className="text-center py-12">
-            <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-primary-200 border-t-primary-600"></div>
-            <p className="mt-4 text-gray-600">Loading options...</p>
+            <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-700 border-t-cyan-400"></div>
+            <p className="mt-4 text-gray-300">Loading options...</p>
           </div>
         )}
       </motion.div>

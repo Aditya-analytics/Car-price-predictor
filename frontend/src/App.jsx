@@ -110,7 +110,7 @@ function App() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   className="mt-8 text-center"
                 >
-                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary-500 to-purple-500 text-white px-6 py-4 rounded-2xl shadow-lg">
+                  <div className="inline-flex items-center gap-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white px-6 py-4 rounded-2xl shadow-lg shadow-cyan-500/50">
                     <Loader2 className="animate-spin" size={24} />
                     <span className="font-semibold">Analyzing car details...</span>
                   </div>
@@ -131,12 +131,12 @@ function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="mt-8 text-center text-gray-600"
+          className="mt-8 text-center text-gray-400"
         >
           <p className="flex items-center justify-center gap-2">
-            <Sparkles size={16} className="text-purple-500" />
+            <Sparkles size={16} className="text-cyan-400" />
             Powered by Machine Learning
-            <Sparkles size={16} className="text-purple-500" />
+            <Sparkles size={16} className="text-cyan-400" />
           </p>
         </motion.div>
       </div>

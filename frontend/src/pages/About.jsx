@@ -18,7 +18,7 @@ const About = () => {
         >
           <Link 
             to="/"
-            className="inline-flex items-center gap-2 text-primary-600 hover:text-primary-700 font-medium transition-colors"
+            className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 font-medium transition-colors"
           >
             <ArrowLeft size={20} />
             Back to Predictor
@@ -35,7 +35,7 @@ const About = () => {
           <h1 className="text-5xl md:text-6xl font-bold mb-4">
             <span className="gradient-text">About This Project</span>
           </h1>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-300">
             Learn more about the technology and creator behind this application
           </p>
         </motion.div>
@@ -49,7 +49,7 @@ const About = () => {
         >
           {/* Animated background circles */}
           <motion.div
-            className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-300/20 to-pink-300/20 rounded-full blur-3xl"
+            className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full blur-3xl"
             animate={{
               scale: [1, 1.2, 1],
               opacity: [0.3, 0.5, 0.3],
@@ -61,7 +61,7 @@ const About = () => {
             }}
           />
           <motion.div
-            className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-300/20 to-purple-300/20 rounded-full blur-3xl"
+            className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-500/20 to-cyan-400/20 rounded-full blur-3xl"
             animate={{
               scale: [1.2, 1, 1.2],
               opacity: [0.5, 0.3, 0.5],
@@ -80,7 +80,7 @@ const About = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary-400 to-purple-400 rounded-full blur-xl opacity-50"
+                className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full blur-xl opacity-50"
                 animate={{
                   scale: [1, 1.2, 1],
                 }}
@@ -89,12 +89,12 @@ const About = () => {
                   repeat: Infinity,
                 }}
               />
-              <div className="relative w-24 h-24 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+              <div className="relative w-24 h-24 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center mb-4 shadow-lg shadow-cyan-500/50">
                 <User size={48} className="text-white" />
               </div>
             </motion.div>
             <h2 className="text-3xl font-bold gradient-text mb-2">Aditya Patil</h2>
-            <p className="text-lg text-gray-600">Project Creator & Developer</p>
+            <p className="text-lg text-white">Project Creator & Developer</p>
             <motion.div
               className="mt-4 flex gap-2"
               initial={{ opacity: 0, y: 10 }}
@@ -129,14 +129,14 @@ const About = () => {
           className="glass-effect rounded-3xl p-8 mb-8 shadow-xl"
         >
           <div className="flex items-center gap-3 mb-6">
-            <Target className="text-primary-600" size={32} />
-            <h3 className="text-2xl font-bold text-gray-800">About This Project</h3>
+            <Target className="text-cyan-400" size={32} />
+            <h3 className="text-2xl font-bold text-cyan-400">About This Project</h3>
           </div>
-          <p className="text-gray-600 text-lg leading-relaxed mb-4">
+          <p className="text-white text-lg leading-relaxed mb-4">
             This is a machine learning project designed to predict car prices based on various features such as year, mileage, fuel type, transmission, and more. The project leverages the power of artificial intelligence to provide accurate car price estimations.
           </p>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            Created by <span className="font-semibold text-primary-600">Aditya Patil</span>, this application demonstrates the practical implementation of machine learning algorithms in real-world scenarios, specifically focusing on the automotive industry.
+          <p className="text-white text-lg leading-relaxed">
+            Created by <span className="font-semibold text-cyan-400">Aditya Patil</span>, this application demonstrates the practical implementation of machine learning algorithms in real-world scenarios, specifically focusing on the automotive industry.
           </p>
         </motion.div>
 
@@ -148,11 +148,11 @@ const About = () => {
           className="glass-effect rounded-3xl p-8 mb-8 shadow-xl"
         >
           <div className="flex items-center gap-3 mb-6">
-            <Brain className="text-purple-600" size={32} />
-            <h3 className="text-2xl font-bold text-gray-800">Machine Learning Technology</h3>
+            <Brain className="text-cyan-400" size={32} />
+            <h3 className="text-2xl font-bold text-cyan-400">Machine Learning Technology</h3>
           </div>
-          <p className="text-gray-600 text-lg leading-relaxed">
-            This project uses <span className="font-bold text-purple-600">Random Forest</span> algorithm, a powerful ensemble learning method that operates by constructing multiple decision trees during training and outputting the mean prediction of individual trees. Random Forest is known for its high accuracy and ability to handle large datasets with higher dimensionality.
+          <p className="text-white text-lg leading-relaxed">
+            This project uses <span className="font-bold text-cyan-400">Random Forest</span> algorithm, a powerful ensemble learning method that operates by constructing multiple decision trees during training and outputting the mean prediction of individual trees. Random Forest is known for its high accuracy and ability to handle large datasets with higher dimensionality.
           </p>
         </motion.div>
 
@@ -164,8 +164,8 @@ const About = () => {
           className="glass-effect rounded-3xl p-8 mb-8 shadow-xl"
         >
           <div className="flex items-center gap-3 mb-6">
-            <Code className="text-blue-600" size={32} />
-            <h3 className="text-2xl font-bold text-gray-800">Technology Stack</h3>
+            <Code className="text-cyan-400" size={32} />
+            <h3 className="text-2xl font-bold text-cyan-400">Technology Stack</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -181,7 +181,7 @@ const About = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + index * 0.1 }}
                 whileHover={{ scale: 1.08, y: -5 }}
-                className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 text-center shadow-md relative overflow-hidden group"
+                className="bg-zinc-900/60 backdrop-blur-sm rounded-2xl p-6 text-center shadow-md border border-cyan-400/20 hover:border-cyan-400/50 relative overflow-hidden group hover:shadow-lg hover:shadow-cyan-400/20 transition-all"
               >
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity"
@@ -194,8 +194,8 @@ const About = () => {
                 >
                   <tech.icon size={32} className="text-white" />
                 </motion.div>
-                <h4 className="font-bold text-gray-800 mb-2">{tech.name}</h4>
-                <p className="text-sm text-gray-600">{tech.desc}</p>
+                <h4 className="font-bold text-white mb-2">{tech.name}</h4>
+                <p className="text-sm text-gray-300">{tech.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -209,10 +209,10 @@ const About = () => {
           className="glass-effect rounded-3xl p-8 mb-8 shadow-xl"
         >
           <div className="flex items-center gap-3 mb-6">
-            <Target className="text-green-600" size={32} />
-            <h3 className="text-2xl font-bold text-gray-800">Project Goals</h3>
+            <Target className="text-cyan-400" size={32} />
+            <h3 className="text-2xl font-bold text-cyan-400">Project Goals</h3>
           </div>
-          <p className="text-gray-600 text-lg leading-relaxed">
+          <p className="text-white text-lg leading-relaxed">
             The main objective of this project is to help users make informed decisions when buying or selling cars by providing data-driven price predictions. By analyzing various car attributes, the model can estimate a fair market value, helping both buyers and sellers in the automotive market.
           </p>
         </motion.div>
@@ -226,7 +226,7 @@ const About = () => {
         >
           <Link 
             to="/"
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform shadow-xl"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform shadow-xl shadow-cyan-500/50 hover:shadow-cyan-400/70"
           >
             <ArrowLeft size={20} />
             Back to Car Price Predictor
