@@ -47,9 +47,22 @@ def get_unique_values():
 @app.route('/')
 def index():
     # Serve React app from frontend/dist
-    if os.path.exists('frontend/dist/index.html'):
+    dist_path = os.path.join(os.path.dirname(__file__), 'frontend', 'dist', 'index.html')
+    if os.path.exists(dist_path):
         return send_from_directory('frontend/dist', 'index.html')
-    return "Frontend not built. Run 'npm run build' in the frontend directory.", 404
+    else:
+        # Provide helpful debugging information
+        cwd = os.getcwd()
+        dist_exists = os.path.exists('frontend/dist')
+        frontend_exists = os.path.exists('frontend')
+        error_msg = f"""<h1>Frontend Not Built</h1>
+        <p>Current directory: {cwd}</p>
+        <p>Frontend directory exists: {frontend_exists}</p>
+        <p>Dist directory exists: {dist_exists}</p>
+        <p>Looking for: {dist_path}</p>
+        <hr>
+        <p>Please ensure the frontend is built during deployment.</p>"""
+        return error_msg, 404
 
 @app.route('/<path:path>')
 def serve_react(path):
