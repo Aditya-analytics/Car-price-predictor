@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory
 import pandas as pd
 import numpy as np
 import joblib
@@ -46,10 +46,10 @@ def get_unique_values():
 
 @app.route('/')
 def index():
-    # Serve React app in production, Flask template in development
+    # Serve React app from frontend/dist
     if os.path.exists('frontend/dist/index.html'):
         return send_from_directory('frontend/dist', 'index.html')
-    return render_template('index.html')
+    return "Frontend not built. Run 'npm run build' in the frontend directory.", 404
 
 @app.route('/<path:path>')
 def serve_react(path):
@@ -59,7 +59,7 @@ def serve_react(path):
     # Fallback to index.html for client-side routing
     if os.path.exists('frontend/dist/index.html'):
         return send_from_directory('frontend/dist', 'index.html')
-    return render_template('index.html')
+    return "Frontend not built. Run 'npm run build' in the frontend directory.", 404
 
 @app.route('/api/options')
 def get_options():
