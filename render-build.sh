@@ -5,8 +5,8 @@ set -o errexit
 # Upgrade pip and build tools
 pip install --upgrade pip setuptools wheel
 
-# Install Python dependencies forcing wheels
-pip install --only-binary=:all: -r requirements.txt
+# Install Python dependencies
+pip install -r requirements.txt
 
 # Install Node.js dependencies and build frontend
 cd frontend
