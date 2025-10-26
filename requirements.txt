@@ -4,5 +4,5 @@ numpy==1.26.4
 pandas==2.1.4
 scikit-learn==1.6.1
 joblib==1.3.2
-git+https://github.com/scikit-learn-contrib/category_encoders.git@master
+category-encoders==2.8.1
 gunicorn==21.2.0
