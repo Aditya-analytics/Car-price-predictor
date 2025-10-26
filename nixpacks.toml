@@ -4,14 +4,13 @@ nixPkgs = ["nodejs-18_x", "python311"]
 [phases.install]
 cmds = [
   "pip install --upgrade pip setuptools wheel",
-  "pip install --only-binary=:all: -r requirements.txt"
+  "pip install -r requirements.txt"
 ]
 
 [phases.build]
 cmds = [
-  "cd frontend && npm ci --legacy-peer-deps || npm install --legacy-peer-deps",
-  "cd frontend && npm run build",
-  "cd .."
+  "cd frontend && npm install",
+  "cd frontend && npm run build"
 ]
 
 [start]
