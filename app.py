@@ -11,6 +11,15 @@ CORS(app)
 # Load the dataset to get unique values for dropdowns
 df = pd.read_csv('Cardetails.csv')
 
+import sys
+import sklearn.compose._column_transformer
+
+class _RemainderColsList:
+    def __init__(self, *args, **kwargs):
+        pass
+
+sys.modules['sklearn.compose._column_transformer']._RemainderColsList = _RemainderColsList
+
 # Load the trained model (same as app1.py)
 model = joblib.load('rf_car.pkl')
 
