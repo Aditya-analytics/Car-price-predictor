@@ -2,11 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, User, Brain, Code, Target, Cpu } from 'lucide-react';
+import AnimatedBackground from '../components/AnimatedBackground';
 
 const About = () => {
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 relative">
+      <AnimatedBackground />
+      <div className="max-w-5xl mx-auto relative z-10">
         {/* Back Button */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
@@ -43,14 +45,79 @@ const About = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="glass-effect rounded-3xl p-8 mb-8 shadow-xl"
+          className="glass-effect rounded-3xl p-8 mb-8 shadow-xl relative overflow-hidden"
         >
-          <div className="flex flex-col items-center text-center">
-            <div className="w-24 h-24 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
-              <User size={48} className="text-white" />
-            </div>
+          {/* Animated background circles */}
+          <motion.div
+            className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-300/20 to-pink-300/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.5, 0.3],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-300/20 to-purple-300/20 rounded-full blur-3xl"
+            animate={{
+              scale: [1.2, 1, 1.2],
+              opacity: [0.5, 0.3, 0.5],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          
+          <div className="flex flex-col items-center text-center relative z-10">
+            <motion.div
+              className="relative"
+              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-primary-400 to-purple-400 rounded-full blur-xl opacity-50"
+                animate={{
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                }}
+              />
+              <div className="relative w-24 h-24 bg-gradient-to-br from-primary-500 to-purple-600 rounded-full flex items-center justify-center mb-4 shadow-lg">
+                <User size={48} className="text-white" />
+              </div>
+            </motion.div>
             <h2 className="text-3xl font-bold gradient-text mb-2">Aditya Patil</h2>
             <p className="text-lg text-gray-600">Project Creator & Developer</p>
+            <motion.div
+              className="mt-4 flex gap-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              {['💻', '🚀', '⚡'].map((emoji, i) => (
+                <motion.span
+                  key={i}
+                  className="text-2xl"
+                  animate={{
+                    y: [0, -10, 0],
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                  }}
+                >
+                  {emoji}
+                </motion.span>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
 
@@ -102,37 +169,35 @@ const About = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-md">
-              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Brain size={32} className="text-white" />
-              </div>
-              <h4 className="font-bold text-gray-800 mb-2">Random Forest</h4>
-              <p className="text-sm text-gray-600">ML Algorithm</p>
-            </div>
-
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-md">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Code size={32} className="text-white" />
-              </div>
-              <h4 className="font-bold text-gray-800 mb-2">Python</h4>
-              <p className="text-sm text-gray-600">Backend Language</p>
-            </div>
-
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-md">
-              <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Cpu size={32} className="text-white" />
-              </div>
-              <h4 className="font-bold text-gray-800 mb-2">Flask</h4>
-              <p className="text-sm text-gray-600">Web Framework</p>
-            </div>
-
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 text-center hover:scale-105 transition-transform shadow-md">
-              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mx-auto mb-4">
-                <Code size={32} className="text-white" />
-              </div>
-              <h4 className="font-bold text-gray-800 mb-2">React</h4>
-              <p className="text-sm text-gray-600">Frontend Library</p>
-            </div>
+            {[
+              { icon: Brain, name: 'Random Forest', desc: 'ML Algorithm', colors: 'from-purple-500 to-pink-500' },
+              { icon: Code, name: 'Python', desc: 'Backend Language', colors: 'from-blue-500 to-cyan-500' },
+              { icon: Cpu, name: 'Flask', desc: 'Web Framework', colors: 'from-green-500 to-emerald-500' },
+              { icon: Code, name: 'React', desc: 'Frontend Library', colors: 'from-orange-500 to-red-500' },
+            ].map((tech, index) => (
+              <motion.div
+                key={tech.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 + index * 0.1 }}
+                whileHover={{ scale: 1.08, y: -5 }}
+                className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 text-center shadow-md relative overflow-hidden group"
+              >
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity"
+                  style={{ background: `linear-gradient(to bottom right, var(--tw-gradient-stops))` }}
+                />
+                <motion.div
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
+                  className={`w-16 h-16 bg-gradient-to-br ${tech.colors} rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg`}
+                >
+                  <tech.icon size={32} className="text-white" />
+                </motion.div>
+                <h4 className="font-bold text-gray-800 mb-2">{tech.name}</h4>
+                <p className="text-sm text-gray-600">{tech.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 

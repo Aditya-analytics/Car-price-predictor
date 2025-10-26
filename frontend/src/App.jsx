@@ -6,11 +6,14 @@ import Header from './components/Header';
 import FormSection from './components/FormSection';
 import ResultCard from './components/ResultCard';
 import ErrorAlert from './components/ErrorAlert';
+import AnimatedBackground from './components/AnimatedBackground';
+import Confetti from './components/Confetti';
 
 function App() {
   const [options, setOptions] = useState(null);
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
+  const [showConfetti, setShowConfetti] = useState(false);
   const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
@@ -56,6 +59,8 @@ function App() {
           price: response.data.predicted_price,
           formatted: response.data.formatted_price
         });
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 3000);
       } else {
         setError(response.data.error || 'Prediction failed. Please try again.');
       }
@@ -75,8 +80,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen py-8 px-4 sm:px-6 lg:px-8 relative">
+      <AnimatedBackground />
+      <Confetti show={showConfetti} />
+      <div className="max-w-7xl mx-auto relative z-10">
         <Header />
         
         <motion.div

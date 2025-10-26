@@ -4,17 +4,54 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50;
     @apply min-h-screen;
     @apply font-sans;
     @apply antialiased;
+    @apply relative;
+    @apply overflow-x-hidden;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #4facfe);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
   }
 }
 
 @layer components {
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-xl border border-white/20;
-    @apply shadow-2xl shadow-purple-200/50;
+    @apply bg-white/90 backdrop-blur-2xl border border-white/30;
+    @apply shadow-2xl;
+    box-shadow: 0 8px 32px 0 rgba(139, 92, 246, 0.2),
+                0 0 0 1px rgba(255, 255, 255, 0.3) inset;
+    animation: glow 3s ease-in-out infinite;
   }
 
   .input-field {
@@ -22,10 +59,13 @@
     @apply focus:border-primary-500 focus:ring-4 focus:ring-primary-100;
     @apply transition-all duration-300 outline-none;
     @apply bg-white/50 backdrop-blur-sm;
+    @apply hover:border-purple-300;
   }
 
   .input-field:focus {
     @apply bg-white;
+    @apply shadow-lg;
+    transform: translateY(-2px);
   }
 
   .btn-primary {
@@ -36,6 +76,26 @@
     @apply transition-all duration-300;
     @apply shadow-lg hover:shadow-2xl;
     @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
   }
 
   .gradient-text {
